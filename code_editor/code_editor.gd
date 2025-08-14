@@ -12,12 +12,15 @@ signal quit
 
 @onready var code_edit: CodeEdit = %CodeEdit
 
+func _ready() -> void:
+    pass
+
 func set_script_in_editor(script: Script) -> void:
 	code_edit.text = script.source_code
 
-func _on_quit_button_pressed():
+func _on_quit_button_pressed() -> void:
 	quit.emit()
 
-func _on_save_button_pressed():
+func _on_save_button_pressed() -> void:
 	edited_script.source_code = code_edit.text
 	saved.emit()
