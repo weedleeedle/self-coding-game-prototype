@@ -312,5 +312,4 @@ static func get_token_from_string(input_string: String) -> GDScriptToken:
 		if input_string.is_valid_unicode_identifier():
 			return GDScriptToken.new(Type.IDENTIFIER, input_string)
 
-		push_error("Unable to parse the provided string as a token!")
 		return null
