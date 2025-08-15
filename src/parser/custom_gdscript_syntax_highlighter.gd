@@ -50,6 +50,8 @@ func _get_line_syntax_highlighting(line_num: int) -> Dictionary:
 			cur_token_index = _handle_identifier(color_dict, tokens, cur_token_index)
 			continue
 
+		cur_token_index += 1
+
 	color_dict.sort()
 	return color_dict
 
