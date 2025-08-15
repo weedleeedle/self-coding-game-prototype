@@ -9,6 +9,7 @@ func _get_line_syntax_highlighting(line_num: int) -> Dictionary:
 	var color_dict: Dictionary = {}
 	var line_str := text_edit.get_line_with_ime(line_num)
 	# A bit hacky but we manually check for comments since we don't even tokenize comments at all, since they just get ignored.
+	# This DOES catch # inside of strings, which shouldn't happen. "#" is totally allowed.
 	var comment_start_index = line_str.find("#")
 	if comment_start_index != -1:
 		print("Comment starts at: ", comment_start_index)

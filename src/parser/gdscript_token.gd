@@ -257,7 +257,7 @@ func _init(p_type: Type, p_string_rep: String):
 static func get_first_token_length_from_string(input_string: String) -> int:
 	# Compile the string regex if it isn't compiled yet.
 	if not _string_regex.is_valid():
-		_string_regex.compile(r"^r?(\"{3}|'{3}|\"|'){1}.*\1")
+		_string_regex.compile(r"^r?(\"{3}|'{3}|\"|'){1}.*?\1")
 
 	# If the provided string starts with a string literal, we consume the entire thing as a token.
 	var _string_regex_results = _string_regex.search(input_string)
@@ -297,7 +297,7 @@ static func get_token_from_string(input_string: String) -> GDScriptToken:
 			return GDScriptToken.new(Type.LITERAL, input_string)
 
 		if not _string_regex.is_valid():
-			_string_regex.compile(r"^r?(\"{3}|'{3}|\"|'){1}.*\1")
+			_string_regex.compile(r"^r?(\"{3}|'{3}|\"|'){1}.*?\1")
 		if _string_regex.search(input_string) != null:
 			return GDScriptToken.new(Type.LITERAL, input_string)
 
