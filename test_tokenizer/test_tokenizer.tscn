@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4432vmymnkxw"]
+[gd_scene load_steps=4 format=3 uid="uid://c4432vmymnkxw"]
 
 [ext_resource type="Script" uid="uid://bucv8vxjyyum0" path="res://test_tokenizer/test_tokenizer.gd" id="1_au0c8"]
+[ext_resource type="Script" uid="uid://85gv2a62whc8" path="res://src/parser/custom_gdscript_syntax_highlighter.gd" id="2_6byik"]
+
+[sub_resource type="SyntaxHighlighter" id="SyntaxHighlighter_o46u2"]
+script = ExtResource("2_6byik")
+metadata/_custom_type_script = "uid://85gv2a62whc8"
 
 [node name="TestTokenizer" type="Control"]
 layout_mode = 3
@@ -23,6 +28,7 @@ grow_vertical = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+syntax_highlighter = SubResource("SyntaxHighlighter_o46u2")
 
 [node name="Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2

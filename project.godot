@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 EditorManager="*res://editor_manager/editor_manager.tscn"
 
+[gui]
+
+theme/custom="uid://blfpctru1ibre"
+
 [input]
 
 edit={
