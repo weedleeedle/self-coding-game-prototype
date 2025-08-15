@@ -2,6 +2,7 @@ class_name CustomGDScriptSyntaxHighlighter extends SyntaxHighlighter
 
 var default_color: Color = Color(1,1,1)
 var text_edit : TextEdit
+var tokenizer = GDScriptTokenizer.default_tokenizer()
 
 func _get_line_syntax_highlighting(line_num: int) -> Dictionary:
 	text_edit = get_text_edit()
@@ -20,7 +21,7 @@ func _get_line_syntax_highlighting(line_num: int) -> Dictionary:
 			}
 		)
 
-	var tokens = GDScriptTokenizer.tokenize_string(line_str, line_num)
+	var tokens = tokenizer.tokenize_string(line_str, line_num)
 	var cur_token_index := 0
 	while cur_token_index < tokens.size():
 		var token = tokens[cur_token_index]
