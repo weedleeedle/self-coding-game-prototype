@@ -2,6 +2,7 @@
 
 [resource]
 TextEdit/colors/background_color = Color(0.113725, 0.133333, 0.160784, 1)
+TextEdit/colors/comment_color = Color(0.803922, 0.811765, 0.823529, 0.501961)
 TextEdit/colors/function_color = Color(0.341176, 0.701961, 1, 1)
 TextEdit/colors/keyword_color = Color(1, 0.439216, 0.521569, 1)
 TextEdit/colors/number_color = Color(0.631373, 1, 0.878431, 1)

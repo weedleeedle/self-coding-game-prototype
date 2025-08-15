@@ -8,6 +8,17 @@ func _get_line_syntax_highlighting(line_num: int) -> Dictionary:
 	default_color = get_text_edit().get_theme_color("font_color")
 	var color_dict: Dictionary = {}
 	var line_str := text_edit.get_line_with_ime(line_num)
+	# A bit hacky but we manually check for comments since we don't even tokenize comments at all, since they just get ignored.
+	var comment_start_index = line_str.find("#")
+	if comment_start_index != -1:
+		print("Comment starts at: ", comment_start_index)
+		color_dict.set(
+			comment_start_index,
+			{
+				"color": text_edit.get_theme_color("comment_color"),
+			}
+		)
+
 	var tokens = GDScriptTokenizer.tokenize_string(line_str, line_num)
 	var cur_token_index := 0
 	while cur_token_index < tokens.size():
@@ -37,6 +48,7 @@ func _get_line_syntax_highlighting(line_num: int) -> Dictionary:
 			cur_token_index = _handle_identifier(color_dict, tokens, cur_token_index)
 			continue
 
+	color_dict.sort()
 	return color_dict
 
 # This function handles parsing any identifiers we find.

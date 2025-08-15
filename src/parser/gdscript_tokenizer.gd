@@ -4,6 +4,11 @@ static func tokenize_string(input_string: String, line_num: int) -> Array[GDScri
     var tokens: Array[GDScriptToken] = []
     var cur_index := 0
     while cur_index < input_string.length():
+        # Remove comments.
+        # Ignore everything after the comment!!!!
+        if input_string[cur_index] == "#":
+            break
+
         var token_len := GDScriptToken.get_first_token_length_from_string(input_string.substr(cur_index))
         # Move onto the next character
         if token_len == -1:
