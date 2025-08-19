@@ -13,7 +13,6 @@ func _get_line_syntax_highlighting(line_num: int) -> Dictionary:
 	# This DOES catch # inside of strings, which shouldn't happen. "#" is totally allowed.
 	var comment_start_index = line_str.find("#")
 	if comment_start_index != -1:
-		print("Comment starts at: ", comment_start_index)
 		color_dict.set(
 			comment_start_index,
 			{
