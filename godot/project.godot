@@ -21,7 +21,7 @@ EditorManager="*res://components/editor_manager/editor_manager.tscn"
 
 [display]
 
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
 
 [gui]
 
