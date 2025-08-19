@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://ddkky1dyg0lxc"]
+
+[ext_resource type="Script" uid="uid://bxlgk7lpwj35e" path="res://components/moving_wall/moving_wall.gd" id="1_3a6f3"]
+[ext_resource type="TileSet" uid="uid://y1rdetpo02ps" path="res://resources/tileset/monochrome_tilemap.tres" id="1_klo33"]
+[ext_resource type="PackedScene" uid="uid://ci7kn75026ai4" path="res://components/codable_component/codable_component.tscn" id="3_3n6do"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_klo33"]
+size = Vector2(16, 64)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_72m22"]
+height = 72.0
+
+[node name="MovingWall" type="CharacterBody2D"]
+script = ExtResource("1_3a6f3")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(-8, -32)
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 12, 0, 1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 12, 0, 1, 0, 0, 0, 0, 0, 3, 0, 0, 0, 12, 0, 2, 0, 0, 0)
+tile_set = ExtResource("1_klo33")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_klo33")
+
+[node name="CodableComponent" parent="." instance=ExtResource("3_3n6do")]
+edited_script = ExtResource("1_3a6f3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CodableComponent"]
+shape = SubResource("CapsuleShape2D_72m22")
