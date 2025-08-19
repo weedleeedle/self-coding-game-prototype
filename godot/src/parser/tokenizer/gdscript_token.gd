@@ -209,7 +209,6 @@ enum Type {
     VAR,
     TK_VOID, # Conflict with WinAPI.
     YIELD,
-
     # Constants
     CONST_PI,
     CONST_TAU,
@@ -222,6 +221,9 @@ enum Type {
     ANNOTATION,
     IDENTIFIER,
     LITERAL,
+    # Yes, we don't *really* parse comments, but we do want to include them in the token stream
+    # for syntax highlighting purposes.
+    COMMENT,
     # Whitespace
     NEWLINE,
     INDENT,
@@ -259,7 +261,8 @@ func is_keyword() -> bool:
 func is_string() -> bool:
     return type == Type.LITERAL and (string_rep[0] == "\"" or string_rep[0] == "\'")
 
-## Is this a literal? NOTE THAT STRINGS ARE LITERALS BUT ALSO THEIR OWN THING!!
+## Is this a literal? NOTE THAT STRINGS ARE LITERALS BUT ALSO THEIR OWN THING
+## (specifically for like, syntax highlighting)
 func is_literal() -> bool:
     return type == Type.LITERAL
 
@@ -269,3 +272,6 @@ func is_symbol() -> bool:
 
 func is_identifier() -> bool:
     return type == Type.IDENTIFIER
+
+func is_comment() -> bool:
+    return type == Type.COMMENT

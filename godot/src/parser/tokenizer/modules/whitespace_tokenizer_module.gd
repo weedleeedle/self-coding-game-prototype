@@ -1,8 +1,6 @@
 class_name WhitespaceTokenizerModule extends TokenizerModule
 
-var current_indent_level := 0
 var hard_tabs: bool = true
-
 
 func get_token_length_from_string(input_string: String) -> int:
     if input_string.begins_with("\n"):
@@ -12,7 +10,7 @@ func get_token_length_from_string(input_string: String) -> int:
         return 1
     elif input_string.begins_with("    "):
         hard_tabs = false
-        return 1
+        return 4
     else:
         return -1
 
