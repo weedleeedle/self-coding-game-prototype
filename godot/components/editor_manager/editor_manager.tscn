@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dlo8rvo4a1kwy" path="res://components/code_editor/code_editor.tscn" id="2_lkyrs"]
 
 [node name="EditorManager" type="Node"]
+process_mode = 3
 script = ExtResource("1_h44v6")
 
 [node name="CodeEditorLayer" type="CanvasLayer" parent="."]
@@ -12,10 +13,6 @@ visible = false
 
 [node name="CodeEditor" parent="CodeEditorLayer" instance=ExtResource("2_lkyrs")]
 unique_name_in_owner = true
-offset_left = 334.0
-offset_top = 121.0
-offset_right = -334.0
-offset_bottom = -121.0
 
 [connection signal="quit" from="CodeEditorLayer/CodeEditor" to="." method="_on_code_editor_quit"]
 [connection signal="saved" from="CodeEditorLayer/CodeEditor" to="." method="_on_code_editor_saved"]
