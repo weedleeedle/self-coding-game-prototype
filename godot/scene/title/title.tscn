@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=3 uid="uid://qnyb2scyb83k"]
+
+[ext_resource type="Script" uid="uid://p4qtxkmt26cb" path="res://scene/title/title.gd" id="1_b1rhm"]
+
+[node name="Title" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b1rhm")
+platformer_scene_path = "uid://be18eh6m52ijg"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+theme_override_font_sizes/font_size = 100
+text = "Self-Coding Game"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Blah blah blah here's some descriptive text"
+horizontal_alignment = 1
+autowrap_mode = 1
+
+[node name="PlatformerButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Play Platformer Level"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/PlatformerButton" to="." method="_on_platformer_button_pressed"]

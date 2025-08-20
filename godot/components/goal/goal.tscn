@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://bw5on3aplxvap"]
+
+[ext_resource type="Texture2D" uid="uid://dx2ryb43p4xm6" path="res://components/goal/tile_0058.png" id="1_s1a0c"]
+[ext_resource type="Script" uid="uid://3au8e0k2o7ky" path="res://components/goal/goal.gd" id="1_yaqyd"]
+[ext_resource type="PackedScene" uid="uid://ci7kn75026ai4" path="res://components/codable_component/codable_component.tscn" id="3_wkfpu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yaqyd"]
+radius = 25.318
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tukos"]
+radius = 42.4264
+
+[node name="Goal" type="Node2D"]
+script = ExtResource("1_yaqyd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -3)
+scale = Vector2(4, 4)
+texture = ExtResource("1_s1a0c")
+
+[node name="PlayerDetectorArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectorArea"]
+shape = SubResource("CircleShape2D_yaqyd")
+
+[node name="CodableComponent" parent="." instance=ExtResource("3_wkfpu")]
+edited_script = ExtResource("1_yaqyd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CodableComponent"]
+shape = SubResource("CircleShape2D_tukos")
+debug_color = Color(1, 0.734134, 0.256567, 0.42)
+
+[connection signal="area_entered" from="PlayerDetectorArea" to="." method="_on_player_detector_area_area_entered"]
+[connection signal="body_entered" from="PlayerDetectorArea" to="." method="_on_player_detector_area_body_entered"]

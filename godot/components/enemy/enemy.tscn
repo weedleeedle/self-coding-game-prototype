@@ -1,0 +1,69 @@
+[gd_scene load_steps=10 format=3 uid="uid://cc8xlb2hjkcxv"]
+
+[ext_resource type="Texture2D" uid="uid://b8ie2t3rpkpli" path="res://components/enemy/tile_0320.png" id="1_mdji8"]
+[ext_resource type="Script" uid="uid://b67xwgspxc8c0" path="res://components/enemy/enemy.gd" id="1_xlq87"]
+[ext_resource type="Texture2D" uid="uid://b658kkv70nsa7" path="res://components/enemy/tile_0321.png" id="2_xlq87"]
+[ext_resource type="Texture2D" uid="uid://co6jbxtvmjpw4" path="res://components/enemy/tile_0322.png" id="3_5eic1"]
+[ext_resource type="PackedScene" uid="uid://ci7kn75026ai4" path="res://components/codable_component/codable_component.tscn" id="5_5eic1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_43fgs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_mdji8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xlq87")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5eic1")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mdji8"]
+size = Vector2(40, 40)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5eic1"]
+radius = 28.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_43fgs"]
+radius = 20.0998
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_xlq87")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -12)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_43fgs")
+frame_progress = 0.967177
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_mdji8")
+
+[node name="WallDetectorRay" type="RayCast2D" parent="."]
+unique_name_in_owner = true
+target_position = Vector2(30, 0)
+
+[node name="CodableComponent" parent="." instance=ExtResource("5_5eic1")]
+edited_script = ExtResource("1_xlq87")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CodableComponent"]
+shape = SubResource("CircleShape2D_5eic1")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_43fgs")
+debug_color = Color(0.767025, 2.52686e-06, 9.62615e-07, 0.419608)
