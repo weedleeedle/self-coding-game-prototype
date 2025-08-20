@@ -10,6 +10,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lvbsv")
+title_scene_path = "uid://qnyb2scyb83k"
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
