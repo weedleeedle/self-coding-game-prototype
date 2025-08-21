@@ -34,7 +34,6 @@ func _on_save_button_pressed() -> void:
     var error = is_valid_script(edited_script, code_edit.text)
     if error:
         error_descriptor.show()
-        error_descriptor.text = "AAAAAAAAAA"
         return
 
     # If no error...
