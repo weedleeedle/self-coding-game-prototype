@@ -23,9 +23,7 @@ func _on_code_editor_saved():
             script_owners.push_back(child)
             child.set_script(null)
 
-    # This will FAIL if the script has a class_name, since you're re-registering an existing script I guess...
-    # I don't know if there's a way to remove the old registered class...
-    # More thinkings to do, might just need to remove class_name declarations which would be annoying.
+    # This does break tweens in RpgCharacter... dunno how to fix that.
     # True keeps state here?
     new_script.reload(true)
     # Reattach script.
