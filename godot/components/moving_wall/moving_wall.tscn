@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bxlgk7lpwj35e" path="res://components/moving_wall/moving_wall.gd" id="1_3a6f3"]
 [ext_resource type="TileSet" uid="uid://y1rdetpo02ps" path="res://resources/tileset/monochrome_tilemap.tres" id="1_klo33"]
-[ext_resource type="PackedScene" uid="uid://ci7kn75026ai4" path="res://components/codable_component/codable_component.tscn" id="3_3n6do"]
+[ext_resource type="PackedScene" uid="uid://ci7kn75026ai4" path="res://components/click_codable_component/click_codable_component.tscn" id="3_3n6do"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_klo33"]
 size = Vector2(16, 64)

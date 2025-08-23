@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dx2ryb43p4xm6" path="res://components/goal/tile_0058.png" id="1_s1a0c"]
 [ext_resource type="Script" uid="uid://3au8e0k2o7ky" path="res://components/goal/goal.gd" id="1_yaqyd"]
-[ext_resource type="PackedScene" uid="uid://ci7kn75026ai4" path="res://components/codable_component/codable_component.tscn" id="3_wkfpu"]
+[ext_resource type="PackedScene" uid="uid://ci7kn75026ai4" path="res://components/click_codable_component/click_codable_component.tscn" id="3_wkfpu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yaqyd"]
 radius = 25.318

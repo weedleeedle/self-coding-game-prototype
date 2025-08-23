@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ci7kn75026ai4"]
+
+[ext_resource type="Script" uid="uid://c687jpo8alchp" path="res://components/click_codable_component/click_codable_component.gd" id="1_waidi"]
+
+[node name="ClickCodableComponent" type="Area2D"]
+script = ExtResource("1_waidi")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
