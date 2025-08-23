@@ -15,7 +15,9 @@ func _unhandled_input(event: InputEvent) -> void:
         interact()
 
 func _physics_process(_delta: float) -> void:
-    velocity = Input.get_vector("move_left", "move_right", "move_up", "move_down") * SPEED
+    # This is a comment. Comments begin with a #.
+    # Comments are ignored, they don't run commands or do anything when the script executes.
+    # velocity = Input.get_vector("move_left", "move_right", "move_up", "move_down") * SPEED
 
     move_and_slide()
 
