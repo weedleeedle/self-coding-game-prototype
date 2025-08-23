@@ -8,6 +8,7 @@
 [node name="StartingRoom" type="Node2D"]
 script = ExtResource("1_dtwm1")
 starting_dialog = Array[String](["Where am I?", "Why can't I move?", "There's a mirror over there...", "If only I could interact with it somehow?"])
+player_moved_dialog = Array[String](["What did I just do?", "I better get out of here"])
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(384, 128)

@@ -10,6 +10,7 @@ const SPEED = 300.0
 
 @onready var thinking_label: Label = %ThinkingLabel
 
+
 func _unhandled_input(event: InputEvent) -> void:
     if event.is_action_pressed("interact"):
         interact()
@@ -54,6 +55,8 @@ func interact() -> void:
 func think(dialog: Array[String]) -> void:
     for line in dialog:
         _think(line)
+        # Reloading scripts with pending awaits is kinda fucky wucky. Should be fixed soon though?
+        # https://github.com/godotengine/godot/pull/102521
         await create_tween().tween_interval(thinking_show_time).finished
 
     thinking_label.hide()

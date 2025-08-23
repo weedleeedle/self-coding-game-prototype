@@ -67,8 +67,6 @@ func _rejoin_token_stream(token_stream: Array[GDScriptToken]) -> String:
 
         new_source_code += " "
 
-    print(new_source_code)
-
     return new_source_code
 
 

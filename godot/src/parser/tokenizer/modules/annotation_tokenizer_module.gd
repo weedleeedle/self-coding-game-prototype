@@ -3,7 +3,6 @@ class_name AnnotationTokenizerModule extends TokenizerModule
 func get_token_length_from_string(input_string: String) -> int:
     if input_string.begins_with("@"):
         # Find the first space ig.
-        print("First space found at: ", input_string.find(" ", 0))
         return input_string.find(" ", 0)
 
     return -1

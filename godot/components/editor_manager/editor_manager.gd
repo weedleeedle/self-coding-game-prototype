@@ -21,14 +21,14 @@ func _on_code_editor_saved():
     for child in get_tree().root.find_children("*", "", true, false):
         if new_script.instance_has(child):
             script_owners.push_back(child)
-            child.set_script(null)
+            #child.set_script(null)
 
     # This does break tweens in RpgCharacter... dunno how to fix that.
     # True keeps state here?
     new_script.reload(true)
     # Reattach script.
-    for restore_object in script_owners:
-        restore_object.set_script(new_script)
+    #for restore_object in script_owners:
+        #restore_object.set_script(new_script)
 
 ## Returns a dictionary of properties.
 ## Key is the property name, value is the current value.
