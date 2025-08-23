@@ -1,12 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://c4es7caam7dta"]
+[gd_scene load_steps=7 format=3 uid="uid://c4es7caam7dta"]
 
 [ext_resource type="Script" uid="uid://c1eo4cutr1pgp" path="res://components/mirror/mirror.gd" id="1_hfp7i"]
 [ext_resource type="Texture2D" uid="uid://ecc7vvmhggk8" path="res://components/mirror/mirror_frame.png" id="2_63uco"]
-[ext_resource type="PackedScene" uid="uid://bog4jxdidfq6g" path="res://components/proximity_codable_component/proximity_codable_component.tscn" id="3_hd0sb"]
+[ext_resource type="PackedScene" uid="uid://ci7kn75026ai4" path="res://components/click_codable_component/click_codable_component.tscn" id="3_hd0sb"]
 [ext_resource type="Script" uid="uid://4ocwu7oiifim" path="res://components/rpg_character/rpg_character.gd" id="4_fpcou"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hfp7i"]
 size = Vector2(64, 64)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fpcou"]
+radius = 43.0465
 
 [node name="Mirror" type="CharacterBody2D"]
 script = ExtResource("1_hfp7i")
@@ -41,5 +44,8 @@ texture = ExtResource("2_63uco")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_hfp7i")
 
-[node name="ProximityCodableComponent" parent="." instance=ExtResource("3_hd0sb")]
+[node name="ClickCodableComponent" parent="." instance=ExtResource("3_hd0sb")]
 edited_script = ExtResource("4_fpcou")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickCodableComponent"]
+shape = SubResource("CircleShape2D_fpcou")
