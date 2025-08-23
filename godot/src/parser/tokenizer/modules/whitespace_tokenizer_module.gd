@@ -3,6 +3,16 @@ class_name WhitespaceTokenizerModule extends TokenizerModule
 var hard_tabs: bool = true
 
 func get_token_length_from_string(input_string: String) -> int:
+    # Handle backslash and remove all following whitespace. We join the current line and the following line basically.
+    # This won't work with a line by line approach, hmm...
+    if input_string.begins_with("\\"):
+        var whitespace_counter := 1
+        while input_string.length() > whitespace_counter and \
+                (input_string[whitespace_counter] == "\n" \
+                or input_string[whitespace_counter] == "\t" \
+                or input_string[whitespace_counter] == " "):
+                    whitespace_counter += 1
+        return whitespace_counter
     if input_string.begins_with("\n"):
         return 1
     elif input_string.begins_with("\t"):
@@ -15,6 +25,9 @@ func get_token_length_from_string(input_string: String) -> int:
         return -1
 
 func get_token_from_string(input_string: String) -> GDScriptToken:
+    # Okay basically if we have a backslash, we throw away all the whitespace.
+    if input_string.begins_with("\\"):
+        return null
     if input_string.begins_with("\n"):
         return GDScriptToken.new(GDScriptToken.Type.NEWLINE, "\n")
 

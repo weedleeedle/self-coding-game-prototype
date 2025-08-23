@@ -13,8 +13,9 @@ static func default_tokenizer() -> GDScriptTokenizer:
     tokenizer.register_module(CommentTokenizerModule.new())
     tokenizer.register_module(KeywordTokenizerModule.new())
     tokenizer.register_module(NumberLiteralTokenizerModule.new())
-    tokenizer.register_module(SymbolTokenizerModule.new())
+    tokenizer.register_module(AnnotationTokenizerModule.new())
     tokenizer.register_module(IdentifierTokenizerModule.new())
+    tokenizer.register_module(SymbolTokenizerModule.new())
     return tokenizer
 
 func tokenize_string(input_string: String, starting_line_num := 0) -> Array[GDScriptToken]:

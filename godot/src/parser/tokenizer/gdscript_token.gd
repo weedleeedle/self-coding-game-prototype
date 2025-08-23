@@ -275,3 +275,6 @@ func is_identifier() -> bool:
 
 func is_comment() -> bool:
     return type == Type.COMMENT
+
+func is_whitespace() -> bool:
+    return type == Type.NEWLINE or type == Type.INDENT
