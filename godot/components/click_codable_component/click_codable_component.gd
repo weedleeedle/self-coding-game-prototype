@@ -1,4 +1,4 @@
-class_name CodableComponent extends Area2D
+class_name ClickCodableComponent extends Area2D
 
 ## Script to edit
 @export var edited_script: Script

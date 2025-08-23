@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=4 uid="uid://pwdtwendewpt"]
+[gd_scene load_steps=4 format=4 uid="uid://pwdtwendewpt"]
 
 [ext_resource type="TileSet" uid="uid://cxctyyvggb2rn" path="res://resources/tileset/rpg.tres" id="1_hukeu"]
+[ext_resource type="PackedScene" uid="uid://c4es7caam7dta" path="res://components/mirror/mirror.tscn" id="2_7e5ko"]
 [ext_resource type="PackedScene" uid="uid://dorj7lqqborwe" path="res://components/rpg_character/rpg_character.tscn" id="2_dewl2"]
 
 [node name="StartingRoom" type="Node2D"]
@@ -9,6 +10,9 @@
 position = Vector2(384, 128)
 tile_map_data = PackedByteArray("AAADAAMAAAAIAAEAAAADAAIAAAAIAAEAAAADAAEAAAAIAAEAAAADAAAAAAAIAAAAAAACAAMAAAAIAAEAAAACAAIAAAAIAAEAAAACAAEAAAAIAAEAAAACAAAAAAAIAAAAAAABAAMAAAAIAAEAAAABAAIAAAAIAAEAAAABAAEAAAAIAAEAAAABAAAAAAAIAAAAAAAAAAMAAAAHAAEAAAAAAAIAAAAHAAEAAAAAAAEAAAAHAAEAAAAAAAAAAAAHAAAAAAAFAAUAAAAJAAIAAAAFAAQAAAAJAAEAAAAFAAMAAAAJAAEAAAAFAAIAAAAJAAEAAAAFAAEAAAAJAAEAAAAFAAAAAAAJAAAAAAAEAAUAAAAIAAIAAAAEAAQAAAAIAAEAAAAEAAMAAAAIAAEAAAAEAAIAAAAIAAEAAAAEAAEAAAAIAAEAAAAEAAAAAAAIAAAAAAADAAUAAAAIAAIAAAADAAQAAAAIAAEAAAACAAUAAAAIAAIAAAACAAQAAAAIAAEAAAABAAUAAAAIAAIAAAABAAQAAAAIAAEAAAAAAAUAAAAHAAIAAAAAAAQAAAAHAAEAAAA=")
 tile_set = ExtResource("1_hukeu")
+
+[node name="Mirror" parent="." instance=ExtResource("2_7e5ko")]
+position = Vector2(768, 320)
 
 [node name="RpgCharacter" parent="." instance=ExtResource("2_dewl2")]
 position = Vector2(576, 320)

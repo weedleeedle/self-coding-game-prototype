@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://c4es7caam7dta"]
+
+[ext_resource type="Script" uid="uid://c1eo4cutr1pgp" path="res://components/mirror/mirror.gd" id="1_hfp7i"]
+[ext_resource type="Texture2D" uid="uid://ecc7vvmhggk8" path="res://components/mirror/mirror_frame.png" id="2_63uco"]
+[ext_resource type="PackedScene" uid="uid://bog4jxdidfq6g" path="res://components/proximity_codable_component/proximity_codable_component.tscn" id="3_hd0sb"]
+[ext_resource type="Script" uid="uid://4ocwu7oiifim" path="res://components/rpg_character/rpg_character.gd" id="4_fpcou"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hfp7i"]
+size = Vector2(64, 64)
+
+[node name="Mirror" type="CharacterBody2D"]
+script = ExtResource("1_hfp7i")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+offset_left = -28.0
+offset_top = -28.0
+offset_right = 28.0
+offset_bottom = 28.0
+pivot_offset = Vector2(28, 28)
+size_flags_horizontal = 4
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+unique_name_in_owner = true
+disable_3d = true
+handle_input_locally = false
+gui_disable_input = true
+size = Vector2i(50, 50)
+render_target_update_mode = 4
+
+[node name="Camera2D" type="Camera2D" parent="SubViewportContainer/SubViewport"]
+unique_name_in_owner = true
+rotation = 3.14159
+ignore_rotation = false
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = ExtResource("2_63uco")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_hfp7i")
+
+[node name="ProximityCodableComponent" parent="." instance=ExtResource("3_hd0sb")]
+edited_script = ExtResource("4_fpcou")

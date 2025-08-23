@@ -3,7 +3,7 @@
 [ext_resource type="FontFile" uid="uid://bv2mw5flv1r1q" path="res://resources/font/GoogleSansCode-VariableFont_wght.ttf" id="1_uxvbd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uxvbd"]
-bg_color = Color(0.119086, 0.205223, 0.316045, 1)
+bg_color = Color(0.117647, 0.203922, 0.317647, 0.247059)
 
 [resource]
 Button/fonts/font = ExtResource("1_uxvbd")
@@ -11,7 +11,7 @@ HeaderLarge/font_sizes/font_size = 128
 Label/font_sizes/font_size = 18
 Label/fonts/font = ExtResource("1_uxvbd")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_uxvbd")
-TextEdit/colors/background_color = Color(0.113725, 0.133333, 0.160784, 1)
+TextEdit/colors/background_color = Color(0.113725, 0.133333, 0.160784, 0.290196)
 TextEdit/colors/comment_color = Color(0.803922, 0.811765, 0.823529, 0.501961)
 TextEdit/colors/function_color = Color(0.341176, 0.701961, 1, 1)
 TextEdit/colors/keyword_color = Color(1, 0.439216, 0.521569, 1)
