@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name RpgCharacter extends CharacterBody2D
 
 ## Time in seconds to show a line of text above the player's head
 @export var thinking_show_time: float = 2.0
@@ -9,9 +9,6 @@ extends CharacterBody2D
 const SPEED = 300.0
 
 @onready var thinking_label: Label = %ThinkingLabel
-
-func _ready() -> void:
-    think("Hi :3")
 
 func _unhandled_input(event: InputEvent) -> void:
     if event.is_action_pressed("interact"):
@@ -52,12 +49,17 @@ func interact() -> void:
 
     interactable.interact()
 
-func think(text: String) -> void:
+func think(dialog: Array[String]) -> void:
+    for line in dialog:
+        _think(line)
+        await create_tween().tween_interval(thinking_show_time).finished
+
+    thinking_label.hide()
+
+func _think(text: String) -> void:
     var vert_margin := 32
     thinking_label.text = text
     # Center label above player
     thinking_label.position.x = -thinking_label.size.x / 2
     thinking_label.position.y = -thinking_label.size.y - vert_margin
     thinking_label.show()
-    await create_tween().tween_interval(thinking_show_time).finished
-    thinking_label.hide()
