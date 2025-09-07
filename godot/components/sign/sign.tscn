@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://yabt77v1e24"]
+
+[ext_resource type="Texture2D" uid="uid://c13x1qpw2dbwh" path="res://components/sign/sign.png" id="1_70rkn"]
+[ext_resource type="Script" uid="uid://0rhve47c6yi" path="res://components/sign/sign.gd" id="1_jdwkm"]
+[ext_resource type="PackedScene" uid="uid://bog4jxdidfq6g" path="res://components/interactable_component/interactable_component.tscn" id="2_jdwkm"]
+[ext_resource type="PackedScene" uid="uid://ci7kn75026ai4" path="res://components/click_codable_component/click_codable_component.tscn" id="4_mdrol"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mdrol"]
+radius = 31.0161
+
+[node name="Sign" type="Node2D"]
+script = ExtResource("1_jdwkm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_70rkn")
+
+[node name="InteractableComponent" parent="." instance=ExtResource("2_jdwkm")]
+
+[node name="DialogLabel" type="Label" parent="."]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -15.5
+offset_right = 20.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ClickCodableComponent" parent="." instance=ExtResource("4_mdrol")]
+edited_script = ExtResource("1_jdwkm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickCodableComponent"]
+shape = SubResource("CircleShape2D_mdrol")
+
+[connection signal="interacted_with" from="InteractableComponent" to="." method="_on_interactable_component_interacted_with"]

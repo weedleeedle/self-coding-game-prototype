@@ -4,5 +4,4 @@ extends Area2D
 @onready var scene_to_switch_to: PackedScene = load(scene_to_switch_to_path)
 
 func _on_body_entered(_body: Node2D) -> void:
-    print("Bah")
-    get_tree().change_scene_to_packed(scene_to_switch_to)
+    get_tree().change_scene_to_packed.call_deferred(scene_to_switch_to)

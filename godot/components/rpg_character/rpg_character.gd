@@ -1,5 +1,13 @@
 class_name RpgCharacter extends CharacterBody2D
 
+# TODO: Player doesn't move. Can you please take care of that?
+# I think the problem should be in _physics_process.
+#
+# - Stavros
+
+signal interactable_interaction_attempted
+signal interactable_interacted_with(interactable: InteractableComponent)
+
 ## Time in seconds to show a line of text above the player's head
 @export var thinking_show_time: float = 2.0
 
@@ -43,6 +51,7 @@ func _get_nearest_interactable_component() -> Node:
     return closest_node
 
 func interact() -> void:
+    interactable_interaction_attempted.emit()
     var interactable: Node = _get_nearest_interactable_component()
     if interactable == null:
         return
@@ -51,6 +60,7 @@ func interact() -> void:
         return
 
     interactable.interact()
+    interactable_interacted_with.emit(interactable)
 
 func think(dialog: Array[String]) -> void:
     for line in dialog:
@@ -64,7 +74,7 @@ func think(dialog: Array[String]) -> void:
 func _think(text: String) -> void:
     var vert_margin := 32
     thinking_label.text = text
+    thinking_label.show()
     # Center label above player
     thinking_label.position.x = -thinking_label.size.x / 2
     thinking_label.position.y = -thinking_label.size.y - vert_margin
-    thinking_label.show()

@@ -44,4 +44,9 @@ autowrap_mode = 1
 layout_mode = 2
 text = "Play Platformer Level"
 
+[node name="PlatformerButton2" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Play RPG Demo"
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/PlatformerButton" to="." method="_on_platformer_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/PlatformerButton2" to="." method="_on_platformer_button_pressed"]

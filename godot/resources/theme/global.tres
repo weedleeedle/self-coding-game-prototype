@@ -8,7 +8,10 @@ bg_color = Color(0.117647, 0.203922, 0.317647, 0.247059)
 [resource]
 Button/fonts/font = ExtResource("1_uxvbd")
 HeaderLarge/font_sizes/font_size = 128
-Label/font_sizes/font_size = 18
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 4
+Label/font_sizes/font_size = 24
 Label/fonts/font = ExtResource("1_uxvbd")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_uxvbd")
 TextEdit/colors/background_color = Color(0.113725, 0.133333, 0.160784, 0.290196)
