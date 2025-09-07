@@ -7,6 +7,7 @@
 size = Vector2(50, 50)
 
 [node name="RpgCharacter" type="CharacterBody2D"]
+collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_wdvwq")
 
@@ -19,6 +20,7 @@ shape = SubResource("RectangleShape2D_wdvwq")
 
 [node name="ThinkingLabel" type="Label" parent="."]
 unique_name_in_owner = true
+visible = false
 offset_left = -120.0
 offset_top = -32.0
 offset_right = 129.0

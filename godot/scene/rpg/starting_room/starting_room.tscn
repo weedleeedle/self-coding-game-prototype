@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=4 uid="uid://pwdtwendewpt"]
+[gd_scene load_steps=7 format=4 uid="uid://pwdtwendewpt"]
 
 [ext_resource type="Script" uid="uid://dbeodbb4p38xb" path="res://scene/rpg/starting_room/starting_room.gd" id="1_dtwm1"]
 [ext_resource type="TileSet" uid="uid://cxctyyvggb2rn" path="res://resources/tileset/rpg.tres" id="1_hukeu"]
 [ext_resource type="PackedScene" uid="uid://c4es7caam7dta" path="res://components/mirror/mirror.tscn" id="2_7e5ko"]
 [ext_resource type="PackedScene" uid="uid://dorj7lqqborwe" path="res://components/rpg_character/rpg_character.tscn" id="2_dewl2"]
+[ext_resource type="PackedScene" uid="uid://mfav4jntjk0" path="res://components/exit_area/exit_area.tscn" id="5_do4qt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n1jf3"]
+size = Vector2(74, 128)
 
 [node name="StartingRoom" type="Node2D"]
 script = ExtResource("1_dtwm1")
@@ -12,7 +16,7 @@ player_moved_dialog = Array[String](["What did I just do?", "I better get out of
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(384, 128)
-tile_map_data = PackedByteArray("AAADAAMAAAAIAAEAAAADAAIAAAAIAAEAAAADAAEAAAAIAAEAAAADAAAAAAAIAAAAAAACAAMAAAAIAAEAAAACAAIAAAAIAAEAAAACAAEAAAAIAAEAAAACAAAAAAAIAAAAAAABAAMAAAAIAAEAAAABAAIAAAAIAAEAAAABAAEAAAAIAAEAAAABAAAAAAAIAAAAAAAAAAMAAAAHAAEAAAAAAAIAAAAHAAEAAAAAAAEAAAAHAAEAAAAAAAAAAAAHAAAAAAAFAAUAAAAJAAIAAAAFAAQAAAAJAAEAAAAFAAMAAAAJAAEAAAAFAAIAAAAJAAEAAAAFAAEAAAAJAAEAAAAFAAAAAAAJAAAAAAAEAAUAAAAIAAIAAAAEAAQAAAAIAAEAAAAEAAMAAAAIAAEAAAAEAAIAAAAIAAEAAAAEAAEAAAAIAAEAAAAEAAAAAAAIAAAAAAADAAUAAAAIAAIAAAADAAQAAAAIAAEAAAACAAUAAAAIAAIAAAACAAQAAAAIAAEAAAABAAUAAAAIAAIAAAABAAQAAAAIAAEAAAAAAAUAAAAHAAIAAAAAAAQAAAAHAAEAAAA=")
+tile_map_data = PackedByteArray("AAADAAMAAAAIAAEAAAADAAIAAAAIAAEAAAADAAEAAAAIAAEAAAADAAAAAAAIAAAAAAACAAMAAAAIAAEAAAACAAIAAAAIAAEAAAACAAEAAAAIAAEAAAACAAAAAAAIAAAAAAABAAMAAAAIAAEAAAABAAIAAAAIAAEAAAABAAEAAAAIAAEAAAABAAAAAAAIAAAAAAAAAAMAAAAIAAEAAAAAAAIAAAAIAAEAAAAAAAEAAAAHAAEAAAAAAAAAAAAHAAAAAAAFAAUAAAAJAAIAAAAFAAQAAAAJAAEAAAAFAAMAAAAJAAEAAAAFAAIAAAAJAAEAAAAFAAEAAAAJAAEAAAAFAAAAAAAJAAAAAAAEAAUAAAAIAAIAAAAEAAQAAAAIAAEAAAAEAAMAAAAIAAEAAAAEAAIAAAAIAAEAAAAEAAEAAAAIAAEAAAAEAAAAAAAIAAAAAAADAAUAAAAIAAIAAAADAAQAAAAIAAEAAAACAAUAAAAIAAIAAAACAAQAAAAIAAEAAAABAAUAAAAIAAIAAAABAAQAAAAIAAEAAAAAAAUAAAAHAAIAAAAAAAQAAAAHAAEAAAD//wMAAAAIAAIAAAD//wIAAAAIAAAAAAD+/wMAAAAIAAIAAAD+/wIAAAAIAAAAAAD9/wMAAAAIAAIAAAD9/wIAAAAIAAAAAAD8/wMAAAAIAAIAAAD8/wIAAAAIAAAAAAD7/wMAAAAIAAIAAAD7/wIAAAAIAAAAAAD6/wMAAAAIAAIAAAD6/wIAAAAIAAAAAAD5/wMAAAAHAAIAAAD5/wIAAAAHAAAAAAA=")
 tile_set = ExtResource("1_hukeu")
 
 [node name="Mirror" parent="." instance=ExtResource("2_7e5ko")]
@@ -20,3 +24,11 @@ position = Vector2(768, 320)
 
 [node name="RpgCharacter" parent="." instance=ExtResource("2_dewl2")]
 position = Vector2(576, 320)
+
+[node name="ExitArea" parent="." instance=ExtResource("5_do4qt")]
+position = Vector2(0, 320)
+scene_to_switch_to_path = "uid://bigerk1x31mm"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitArea"]
+position = Vector2(-27, 0)
+shape = SubResource("RectangleShape2D_n1jf3")
