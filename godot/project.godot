@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="in-game-code-editor-test"
+config/name="Self-Coded Game Prototype"
 run/main_scene="uid://qnyb2scyb83k"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://resources/image/icon.svg"
