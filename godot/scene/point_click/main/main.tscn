@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://jy33imrep6gq"]
+
+[ext_resource type="PackedScene" uid="uid://bw6cagcj3k36g" path="res://components/star_field/star_field.tscn" id="1_pe04o"]
+[ext_resource type="Texture2D" uid="uid://d2jkn2trhmt6x" path="res://scene/point_click/main/point-and-click-background.png" id="2_bu6dq"]
+
+[node name="Main" type="Node2D"]
+
+[node name="StarField" parent="." instance=ExtResource("1_pe04o")]
+amount = 1000
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_bu6dq")
+centered = false

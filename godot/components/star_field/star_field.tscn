@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://bw6cagcj3k36g"]
+
+[ext_resource type="Script" uid="uid://x3b7ykgdjlgy" path="res://components/star_field/star_field.gd" id="1_shvjm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wvw8u"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="StarField" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.00155, 1)
+script = ExtResource("1_shvjm")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wvw8u")
+
+[node name="Emitter" type="CPUParticles2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(576, 0)
+amount = 500
+lifetime = 20.0
+emission_shape = 3
+emission_rect_extents = Vector2(1152, 1)
+direction = Vector2(-1, 1)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
