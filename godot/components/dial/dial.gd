@@ -1,7 +1,7 @@
 @tool
 class_name Dial extends Node2D
 
-signal digit_selected(digit: int)
+signal selected_digit_changed(digit: int)
 
 ## The selected digit
 @export var digit: int:
@@ -10,7 +10,7 @@ signal digit_selected(digit: int)
 	set(value):
 		digit = _set_valid_digit(value)
 		_position_sprite(digit)
-		digit_selected.emit(digit)
+		selected_digit_changed.emit(digit)
 
 # Offset from the first digit (0)
 var base_offset: int = 200

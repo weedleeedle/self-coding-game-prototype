@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://bnslbu8eqheom"]
+
+[ext_resource type="Script" uid="uid://xrm2mc02oir1" path="res://scene/point_click/suitcase_front/suitcase_front.gd" id="1_rphcl"]
+[ext_resource type="PackedScene" uid="uid://i1m6kilys7ht" path="res://components/dial/dial.tscn" id="1_suqrd"]
+[ext_resource type="PackedScene" uid="uid://ci7kn75026ai4" path="res://components/click_codable_component/click_codable_component.tscn" id="2_3yf6g"]
+[ext_resource type="Texture2D" uid="uid://bkhyqtnqa7b3r" path="res://scene/point_click/suitcase_front/point-and-click-suitcase-front.png" id="2_ldipe"]
+[ext_resource type="Script" uid="uid://cycjqgpwylyic" path="res://scene/point_click/suitcase_front/dials.gd" id="3_fduag"]
+
+[node name="SuitcaseFront" type="Node2D"]
+script = ExtResource("1_rphcl")
+
+[node name="ClickCodableComponent" parent="." instance=ExtResource("2_3yf6g")]
+
+[node name="Dials" type="Node2D" parent="."]
+script = ExtResource("3_fduag")
+
+[node name="Dial" parent="Dials" instance=ExtResource("1_suqrd")]
+position = Vector2(441, 314)
+
+[node name="Dial2" parent="Dials" instance=ExtResource("1_suqrd")]
+position = Vector2(541, 314)
+
+[node name="Dial3" parent="Dials" instance=ExtResource("1_suqrd")]
+position = Vector2(641, 314)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ldipe")
+centered = false

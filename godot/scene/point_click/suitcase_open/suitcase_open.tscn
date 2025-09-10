@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://c2x0gcgp2h7o"]
+
+[ext_resource type="Script" uid="uid://b8d3k5argdodw" path="res://scene/point_click/suitcase_open/suitcase_open.gd" id="1_7cf4r"]
+[ext_resource type="Texture2D" uid="uid://2tmgf2v7wgyr" path="res://scene/point_click/suitcase_open/point-and-click-suitcase.png" id="1_m7wlv"]
+[ext_resource type="Texture2D" uid="uid://dilpwkky748op" path="res://scene/point_click/suitcase_open/point-and-click-suitcase-2.png" id="2_7cf4r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3s2tx"]
+radius = 138.311
+
+[node name="SuitcaseOpen" type="Node2D"]
+script = ExtResource("1_7cf4r")
+
+[node name="SuitcaseDefault" type="Sprite2D" parent="."]
+texture = ExtResource("1_m7wlv")
+centered = false
+
+[node name="SuitcaseBadgeTaken" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_7cf4r")
+centered = false
+
+[node name="BadgeArea" type="Area2D" parent="."]
+position = Vector2(514, 326)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BadgeArea"]
+shape = SubResource("CircleShape2D_3s2tx")
+
+[connection signal="input_event" from="BadgeArea" to="." method="_on_badge_area_input_event"]
