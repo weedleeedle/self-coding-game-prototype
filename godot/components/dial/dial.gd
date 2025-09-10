@@ -1,6 +1,7 @@
 @tool
-
 class_name Dial extends Node2D
+
+signal digit_selected(digit: int)
 
 ## The selected digit
 @export var digit: int:
@@ -9,6 +10,7 @@ class_name Dial extends Node2D
 	set(value):
 		digit = _set_valid_digit(value)
 		_position_sprite(digit)
+		digit_selected.emit(digit)
 
 # Offset from the first digit (0)
 var base_offset: int = 200
@@ -30,9 +32,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 	if dragged and event is InputEventMouseButton and event.is_released():
 		dragged = false
-		print(_get_shown_digit_at_position(dial_display.position.y))
 		digit = _get_shown_digit_at_position(dial_display.position.y)
-		print(digit)
 
 ## Displays the portion of the sprite associated with the digit.
 func _position_sprite(digit: int) -> void:
