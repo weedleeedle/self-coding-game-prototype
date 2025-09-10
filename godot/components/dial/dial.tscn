@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://i1m6kilys7ht"]
+
+[ext_resource type="Script" uid="uid://c3f7jw4dfivch" path="res://components/dial/dial.gd" id="1_ke2mg"]
+[ext_resource type="Texture2D" uid="uid://dmxs7vcv4hoxd" path="res://components/dial/point-and-click-dial.png" id="1_l0vpr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ke2mg"]
+bg_color = Color(0.912289, 0.912289, 0.912289, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ke2mg"]
+size = Vector2(100, 100)
+
+[node name="Dial" type="Node2D"]
+script = ExtResource("1_ke2mg")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+custom_minimum_size = Vector2(100, 100)
+mouse_filter = 2
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(100, 100)
+render_target_update_mode = 4
+
+[node name="DialBg" type="Panel" parent="SubViewportContainer/SubViewport"]
+custom_minimum_size = Vector2(100, 100)
+offset_right = 100.0
+offset_bottom = 100.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ke2mg")
+
+[node name="DialDisplay" type="Sprite2D" parent="SubViewportContainer/SubViewport"]
+unique_name_in_owner = true
+position = Vector2(0, -200)
+texture = ExtResource("1_l0vpr")
+centered = false
+
+[node name="GrabArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrabArea"]
+position = Vector2(50, 50)
+shape = SubResource("RectangleShape2D_ke2mg")
+
+[connection signal="input_event" from="GrabArea" to="." method="_on_grab_area_input_event"]
