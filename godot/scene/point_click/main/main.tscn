@@ -1,13 +1,62 @@
-[gd_scene load_steps=3 format=3 uid="uid://jy33imrep6gq"]
+[gd_scene load_steps=11 format=3 uid="uid://jy33imrep6gq"]
 
+[ext_resource type="Script" uid="uid://ck4yqnnbmtlsv" path="res://scene/point_click/main/main.gd" id="1_4uru8"]
 [ext_resource type="PackedScene" uid="uid://bw6cagcj3k36g" path="res://components/star_field/star_field.tscn" id="1_pe04o"]
 [ext_resource type="Texture2D" uid="uid://d2jkn2trhmt6x" path="res://scene/point_click/main/point-and-click-background.png" id="2_bu6dq"]
+[ext_resource type="PackedScene" uid="uid://ba5x1hupalw25" path="res://components/click_scene_loader/click_scene_loader.tscn" id="3_bu6dq"]
+[ext_resource type="PackedScene" uid="uid://ci7kn75026ai4" path="res://components/click_codable_component/click_codable_component.tscn" id="4_bxgsu"]
+[ext_resource type="Script" uid="uid://c31ypx7yb3ut8" path="res://scene/point_click/main/badge_reader_area.gd" id="5_1f3h8"]
+[ext_resource type="Resource" uid="uid://d0orqw1hhuiip" path="res://scene/point_click/resources/items/badge.tres" id="7_kixpl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6eui2"]
+radius = 99.2018
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4uru8"]
+radius = 63.561
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kixpl"]
+radius = 64.6297
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_4uru8")
+victory_scene_path = "uid://c1eexc5rnrp75"
 
 [node name="StarField" parent="." instance=ExtResource("1_pe04o")]
-amount = 1000
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_bu6dq")
 centered = false
+
+[node name="ClickSceneLoader" parent="." instance=ExtResource("3_bu6dq")]
+position = Vector2(1051, 285)
+scene_to_load = "uid://0by5ky1p4swg"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickSceneLoader"]
+shape = SubResource("CircleShape2D_6eui2")
+
+[node name="ClickCodableComponent" parent="." instance=ExtResource("4_bxgsu")]
+position = Vector2(340, 280)
+edited_script = ExtResource("5_1f3h8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickCodableComponent"]
+shape = SubResource("CircleShape2D_4uru8")
+
+[node name="BadgeReaderArea" type="Area2D" parent="."]
+position = Vector2(4, 3)
+script = ExtResource("5_1f3h8")
+badge_item = ExtResource("7_kixpl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BadgeReaderArea"]
+position = Vector2(336, 274)
+shape = SubResource("CircleShape2D_kixpl")
+
+[node name="Label" type="Label" parent="BadgeReaderArea"]
+visible = false
+offset_left = 192.0
+offset_top = 176.0
+offset_right = 494.0
+offset_bottom = 207.0
+text = "Authorization needed!"
+
+[connection signal="badge_scanned" from="BadgeReaderArea" to="." method="_on_badge_reader_area_badge_scanned"]
+[connection signal="input_event" from="BadgeReaderArea" to="BadgeReaderArea" method="_on_input_event"]

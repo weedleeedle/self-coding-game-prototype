@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnu682osyisk8"]
+
+[ext_resource type="Script" uid="uid://bm4nk1eym8lwi" path="res://auto/point_and_click_state/point_click_state.gd" id="1_8klwf"]
+
+[node name="PointClickState" type="Node"]
+script = ExtResource("1_8klwf")

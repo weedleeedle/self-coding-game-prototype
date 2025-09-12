@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=2 format=3 uid="uid://d0orqw1hhuiip"]
+
+[ext_resource type="Script" uid="uid://dlht26txssvvm" path="res://src/inventory_item.gd" id="1_skc7g"]
+
+[resource]
+script = ExtResource("1_skc7g")
+item_id = "access_badge"
+metadata/_custom_type_script = "uid://dlht26txssvvm"

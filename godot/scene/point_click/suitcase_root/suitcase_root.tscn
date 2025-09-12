@@ -6,9 +6,32 @@
 
 [node name="SuitcaseRoot" type="Node2D"]
 script = ExtResource("1_onkni")
+back_scene_path = "uid://jy33imrep6gq"
 
 [node name="SuitcaseFront" parent="." instance=ExtResource("2_o03ns")]
 
 [node name="SuitcaseOpen" parent="." instance=ExtResource("3_gdlre")]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -57.0
+offset_top = -27.0
+offset_right = -2.0
+offset_bottom = 2.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="BackButton" type="Button" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+text = "Back"
+
 [connection signal="code_solved" from="SuitcaseFront" to="." method="_on_suitcase_opened"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/BackButton" to="." method="_on_back_button_pressed"]

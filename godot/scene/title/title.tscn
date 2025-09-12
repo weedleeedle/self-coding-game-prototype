@@ -34,7 +34,7 @@ theme_override_font_sizes/font_size = 100
 text = "Self-Coding Game"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Description" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Blah blah blah here's some descriptive text"
 horizontal_alignment = 1
@@ -48,5 +48,10 @@ text = "Play Platformer Level"
 layout_mode = 2
 text = "Play RPG Demo"
 
+[node name="PointClickButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Play Point and Click Adventure Demo"
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/PlatformerButton" to="." method="_on_platformer_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/RPGButton" to="." method="_on_rpg_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/PointClickButton" to="." method="_on_point_click_button_pressed"]

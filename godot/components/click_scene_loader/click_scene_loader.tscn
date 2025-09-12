@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ba5x1hupalw25"]
+
+[ext_resource type="Script" uid="uid://dr88n0rukuete" path="res://components/click_scene_loader/click_scene_loader.gd" id="1_qt6wd"]
+
+[node name="ClickSceneLoader" type="Area2D"]
+script = ExtResource("1_qt6wd")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

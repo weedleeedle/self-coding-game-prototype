@@ -6,8 +6,15 @@ extends Control
 @export_file("*.tscn") var rpg_scene_path: String
 @onready var rpg_scene: PackedScene = load(rpg_scene_path)
 
+@export_file("*.tscn") var point_click_scene_path: String
+@onready var point_click_scene: PackedScene = load(point_click_scene_path)
+
 func _on_platformer_button_pressed():
     get_tree().change_scene_to_packed(platformer_scene)
 
 func _on_rpg_button_pressed():
     get_tree().change_scene_to_packed(rpg_scene)
+
+func _on_point_click_button_pressed():
+    get_tree().change_scene_to_packed(point_click_scene)
+
