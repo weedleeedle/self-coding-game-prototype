@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://0by5ky1p4swg"]
+
+[ext_resource type="Script" uid="uid://dfjjx62k4drme" path="res://scene/point_click/suitcase_root/suitcase_root.gd" id="1_onkni"]
+[ext_resource type="PackedScene" uid="uid://bnslbu8eqheom" path="res://scene/point_click/suitcase_front/suitcase_front.tscn" id="2_o03ns"]
+[ext_resource type="PackedScene" uid="uid://c2x0gcgp2h7o" path="res://scene/point_click/suitcase_open/suitcase_open.tscn" id="3_gdlre"]
+
+[node name="SuitcaseRoot" type="Node2D"]
+script = ExtResource("1_onkni")
+
+[node name="SuitcaseFront" parent="." instance=ExtResource("2_o03ns")]
+
+[node name="SuitcaseOpen" parent="." instance=ExtResource("3_gdlre")]
+
+[connection signal="code_solved" from="SuitcaseFront" to="." method="_on_suitcase_opened"]
