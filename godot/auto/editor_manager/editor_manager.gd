@@ -17,10 +17,10 @@ func _on_code_editor_saved():
     code_editor_layer.hide()
 
     var new_script = code_editor.edited_script
-    var script_owners: Array[Node] = []
-    for child in get_tree().root.find_children("*", "", true, false):
-        if new_script.instance_has(child):
-            script_owners.push_back(child)
+    #var script_owners: Array[Node] = []
+    #for child in get_tree().root.find_children("*", "", true, false):
+        #if new_script.instance_has(child):
+            #script_owners.push_back(child)
             #child.set_script(null)
 
     # This does break tweens in RpgCharacter... dunno how to fix that.

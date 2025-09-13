@@ -44,6 +44,8 @@ func _strip_class_name(source_code: String) -> String:
 			token_stream.remove_at(cur_token_index)
 			# We only need to do this once i think?
 			break
+		else:
+			cur_token_index += 1
 
 	return _rejoin_token_stream(token_stream)
 

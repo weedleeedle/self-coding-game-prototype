@@ -17,7 +17,7 @@ config/icon="res://resources/image/icon.svg"
 
 [autoload]
 
-EditorManager="*res://components/editor_manager/editor_manager.tscn"
+EditorManager="*res://auto/editor_manager/editor_manager.tscn"
 Inventory="*res://auto/inventory/inventory.tscn"
 PointClickState="*res://auto/point_and_click_state/point_click_state.tscn"
 

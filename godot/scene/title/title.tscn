@@ -11,6 +11,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_b1rhm")
 platformer_scene_path = "uid://be18eh6m52ijg"
+rpg_scene_path = "uid://pwdtwendewpt"
+point_click_scene_path = "uid://jy33imrep6gq"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -36,9 +38,18 @@ horizontal_alignment = 1
 
 [node name="Description" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Blah blah blah here's some descriptive text"
+theme_override_font_sizes/font_size = 22
+text = "Below are some game prototypes in different genres. The core concept in all of them is editing the game's code in order to proceed. In all three games the mechanic is the same: Right click on an object to bring up an editor and make changes to that object's code. Not everything is editable. Every game requires editing at least one piece of code to win.
+
+Thanks for playing! Let me know what you think. I'm just trying to get a sense of which idea has the most potential of the three games included.
+
+Code has to be valid to be saved. If not you'll get an error. Also try not to edit an object in the middle of an animation, that's kinda sorta broken..."
 horizontal_alignment = 1
-autowrap_mode = 1
+autowrap_mode = 3
+
+[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 
 [node name="PlatformerButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
